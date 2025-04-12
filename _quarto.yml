@@ -1,4 +1,8 @@
+project:
+  type: website
+  output-dir: docs
+
 format:
   html:
-    theme: cosmo  # или любой другой, какой тебе нравится
+    theme: cosmo  
     css: styles/styles.css  # путь к файлу стилей
