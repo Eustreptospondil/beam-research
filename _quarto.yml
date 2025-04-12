@@ -1,0 +1,4 @@
+format:
+  html:
+    theme: cosmo  # или любой другой, какой тебе нравится
+    css: styles/styles.css  # путь к файлу стилей
