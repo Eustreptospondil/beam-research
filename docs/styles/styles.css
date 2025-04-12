@@ -1,0 +1,8 @@
+/* styles.css */
+.scroll-matrix {
+  overflow-x: auto;
+  padding: 1em;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  font-size: 0.9em;
+}
