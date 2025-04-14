@@ -2,7 +2,19 @@ project:
   type: website
   output-dir: docs
 
+website:
+  title: "Расчёт балки"
+  page-navigation: true
+  reader-mode: true
+  navbar:
+    right:
+      - href: balka.html
+        text: Главная
+
 format:
   html:
-    theme: cosmo  
-    css: styles/styles.css  # путь к файлу стилей
+    theme: cosmo
+    css: styles/styles.css
+    toc: true
+    toc-location: left
+    mainfont: system-ui

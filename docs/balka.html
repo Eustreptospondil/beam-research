@@ -8,7 +8,7 @@
 
 <meta name="author" content="nshstsnyasha">
 
-<title>Разбор задачи о шарнирно опёртой балке с «неполным» набором граничных условий</title>
+<title>Разбор задачи о шарнирно опёртой балке с «неполным» набором граничных условий – Расчёт балки</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -60,6 +60,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
@@ -74,13 +75,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-226bd0f977fa82dfae4534cac220d79a.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-bb5f9278568ae542f8467bdb635b70ac.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-46a852850c66c219f2e78f7f5de72d9d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -136,14 +137,73 @@ window.Quarto = {
 <link rel="stylesheet" href="styles/styles.css">
 </head>
 
-<body class="fullcontent quarto-light">
+<body class="floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Расчёт балки</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./balka.html" aria-current="page"> 
+<span class="menu-text">Главная</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#введение" id="toc-введение" class="nav-link active" data-scroll-target="#введение">Введение</a></li>
+  <li><a href="#результаты-решения-в-приличных-не-solidworks-программных-комплексах" id="toc-результаты-решения-в-приличных-не-solidworks-программных-комплексах" class="nav-link" data-scroll-target="#результаты-решения-в-приличных-не-solidworks-программных-комплексах">1. Результаты решения в приличных (не SolidWorks) программных комплексах</a>
+  <ul class="collapse">
+  <li><a href="#ansys" id="toc-ansys" class="nav-link" data-scroll-target="#ansys">1.1 ANSYS</a></li>
+  <li><a href="#simcenter-nastran" id="toc-simcenter-nastran" class="nav-link" data-scroll-target="#simcenter-nastran">1.2 Simcenter Nastran</a></li>
+  <li><a href="#comsol" id="toc-comsol" class="nav-link" data-scroll-target="#comsol">1.3 COMSOL</a></li>
+  <li><a href="#abaqus" id="toc-abaqus" class="nav-link" data-scroll-target="#abaqus">1.4 ABAQUS</a></li>
+  <li><a href="#optistruct-altair-hyperworks" id="toc-optistruct-altair-hyperworks" class="nav-link" data-scroll-target="#optistruct-altair-hyperworks">1.5 OptiStruct (Altair Hyperworks)</a></li>
+  <li><a href="#логос" id="toc-логос" class="nav-link" data-scroll-target="#логос">1.6 ЛОГОС</a></li>
+  </ul></li>
+  <li><a href="#немножко-теории" id="toc-немножко-теории" class="nav-link" data-scroll-target="#немножко-теории">2. Немножко теории</a>
+  <ul class="collapse">
+  <li><a href="#а-что-там-внутри" id="toc-а-что-там-внутри" class="nav-link" data-scroll-target="#а-что-там-внутри">2.1 А что там внутри?</a></li>
+  <li><a href="#эталонное-решение-и-сравнение-с-полученными-ранее-результатами" id="toc-эталонное-решение-и-сравнение-с-полученными-ранее-результатами" class="nav-link" data-scroll-target="#эталонное-решение-и-сравнение-с-полученными-ранее-результатами">2.2 Эталонное решение и сравнение с полученными ранее результатами</a></li>
+  <li><a href="#промежуточный-вывод" id="toc-промежуточный-вывод" class="nav-link" data-scroll-target="#промежуточный-вывод">2.3 Промежуточный вывод</a></li>
+  <li><a href="#немножко-про-матрицы-жёсткости" id="toc-немножко-про-матрицы-жёсткости" class="nav-link" data-scroll-target="#немножко-про-матрицы-жёсткости">2.4 Немножко про матрицы жёсткости</a></li>
+  <li><a href="#костыли" id="toc-костыли" class="nav-link" data-scroll-target="#костыли">2.5 «Костыли»</a></li>
+  </ul></li>
+  <li><a href="#вывод" id="toc-вывод" class="nav-link" data-scroll-target="#вывод">Вывод</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
