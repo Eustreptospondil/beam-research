@@ -15,6 +15,13 @@
   height: auto;
 }
 
+.scroll-formula {
+  overflow-x: auto;
+  display: block;
+  max-width: 100%;
+  padding: 0.5em;
+}
+
 img {
   max-width: 100%;
   height: auto;

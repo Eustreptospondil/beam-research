@@ -1039,14 +1039,18 @@ x_1 \\ x_2 \\ x_3
 <h3 class="anchored" data-anchor-id="эталонное-решение-и-сравнение-с-полученными-ранее-результатами">2.2 Эталонное решение и сравнение с полученными ранее результатами</h3>
 <hr>
 <p>К этому моменту уже была получена целая куча результатов, однако не понятно насколько они далеки от истины. Рассмотрим аналитическое решение для максимального прогиба балки Эйлера:</p>
+<div class="scroll-formula">
 <p><span class="math display">\[
 u_{max} = \frac{F \cdot L^3}{48 \cdot E \cdot I_z} = \frac{1 \cdot 600^3}{48 \cdot 20000 \cdot 490,87} = 0,458~{\text{мм}}
 \]</span></p>
+</div>
 <p>где <span class="math inline">\(F\)</span> - поперечная сила, <span class="math inline">\(F = 1~{\text{кгс}}\)</span>; <span class="math inline">\(L\)</span> – длина балки, <span class="math inline">\(L = 600~{\text{мм}}\)</span>; <span class="math inline">\(E\)</span> – модуль упругости, <span class="math inline">\(E=20000~{\text{кгс/мм}}^2\)</span>; <span class="math inline">\(I_z\)</span> – момент инерции поперечного сечения, <span class="math inline">\(I_z = \frac{\pi \cdot D^4}{64} = \frac{\pi \cdot 10^4}{64} = 490,87~{\text{мм}}^4\)</span>; <span class="math inline">\(D\)</span> – диаметр поперечного сечения, <span class="math inline">\(D = 10~{\text{мм}}\)</span>.</p>
 <p>Аналитическое решение для максимального прогиба балки Тимошенко:</p>
+<div class="scroll-formula">
 <p><span class="math display">\[
 u_{max} = \frac{F \cdot L^3}{48 \cdot E \cdot I_z} + \frac{F}{k \cdot G \cdot A} = \frac{1 \cdot 600^3}{48 \cdot 20000 \cdot 490,87} + \frac{1}{1,111 \cdot 7692 \cdot 78,54} = 0,458~{\text{мм}}
 \]</span></p>
+</div>
 <p>где <span class="math inline">\(A\)</span> – площадь поперечного сечения, <span class="math inline">\(A = \frac{\pi \cdot D^2}{4} = 78,54~{\text{мм}}^2\)</span>; <span class="math inline">\(k\)</span> – коэффициент, который для круглого поперечного сечения равен <span class="math inline">\(k = 10/9 = 1,111\)</span>; <span class="math inline">\(G\)</span> – модуль сдвига, <span class="math inline">\(G = \frac{E}{2 \cdot (1 + \mu)} = \frac{20000}{2 \cdot (1+0,3} = 7692~{\text{кгс/мм}}^2\)</span>.</p>
 <p>Таким образом, для нашей балки результаты получились одинаковыми (пушто наша балка достаточно длинная и влияние сдвига – минимально).</p>
 <p>Теперь настало время сопоставить полученные ранее результаты с эталонным решением. Сведём их в таблицу 1.</p>
@@ -1308,6 +1312,7 @@ x=
 \end{bmatrix}
 \]</span></p>
 <p>В результате разложения (можно в маткаде прикинуть) получим:</p>
+<div class="scroll-formula">
 <p><span class="math display">\[
 U=
 \begin{bmatrix}
@@ -1328,7 +1333,9 @@ U=
 -0,716 &amp; -0,566 &amp; -0,408
 \end{bmatrix}
 \]</span></p>
+</div>
 <p>Псевдообратная (заменяем ненулевые элементы на диагонали на обратные) матрица для <span class="math inline">\(Σ\)</span> будет выглядеть как:</p>
+<div class="scroll-formula">
 <p><span class="math display">\[
 Σ^{+}=
 \begin{bmatrix}
@@ -1343,7 +1350,9 @@ U=
 0 &amp; 0 &amp; 0
 \end{bmatrix}
 \]</span></p>
+</div>
 <p>Найдём частное решение по соотношению <span class="math inline">\(x_{\text{част}} = V \cdot Σ^{+} \cdot U^{T} \cdot f\)</span>:</p>
+<div class="scroll-formula">
 <p><span class="math display">\[
 U^{T} \cdot f =
 \begin{bmatrix}
@@ -1360,6 +1369,8 @@ U^{T} \cdot f =
 -3,739 \\ -0,153 \\ 0
 \end{bmatrix}
 \]</span></p>
+</div>
+<div class="scroll-formula">
 <p><span class="math display">\[
 Σ^{+} \cdot U^{T} \cdot f =
 \begin{bmatrix}
@@ -1376,6 +1387,8 @@ U^{T} \cdot f =
 -0,239 \\ -0,189 \\ 0
 \end{bmatrix}
 \]</span></p>
+</div>
+<div class="scroll-formula">
 <p><span class="math display">\[
 x_{\text{част}} = K^{+} \cdot f = V \cdot Σ^{+} \cdot U^{T} \cdot f =
 \begin{bmatrix}
@@ -1392,6 +1405,7 @@ x_{\text{част}} = K^{+} \cdot f = V \cdot Σ^{+} \cdot U^{T} \cdot f =
 -0,056 \\ 0,111 \\ 0,278
 \end{bmatrix}
 \]</span></p>
+</div>
 <p>Находим базис ядра (ядро матрицы <span class="math inline">\(K\)</span> – это те векторы <span class="math inline">\(x\)</span>, для которых <span class="math inline">\(K \cdot x = 0\)</span>). В <span class="math inline">\(Σ\)</span> третье значение равно нулю, значит, третий столбец <span class="math inline">\(V\)</span> и есть базис ядра:</p>
 <p><span class="math display">\[
 k=
@@ -1412,6 +1426,7 @@ x=
 \]</span></p>
 <p>Очевидно, что в силу произвольности константы <span class="math inline">\(\alpha\)</span> для системы с вырожденной матрицей можно получить сколько угодно «полных» решений. Полученное выше частное решение является минимальным по норме <span class="math inline">\((||x_{\text{част}}|| = \sqrt{x_{\text{част}}^{T} \cdot x_{\text{част}}})\)</span> среди всех возможных решений и ортогональным ядру (то есть <span class="math inline">\(x_{\text{част}}\)</span> перпендикулярен всем векторам ядра <span class="math inline">\(K\)</span>: <span class="math inline">\(x_{\text{част}}^{T} \cdot v_{i} = 0\)</span> для любого <span class="math inline">\(v_{i}\)</span> из ядра). Для задачи с шарнирно опёртой балкой найденное частное решение будет представлять собой перемещения с минимальной «энергией».</p>
 <p>Алсо, если в решение в общем виде, которое мы получили равнее, подставить <span class="math inline">\(t = 0,278\)</span>, то получим:</p>
+<div class="scroll-formula">
 <p><span class="math display">\[
 x=
 \begin{bmatrix}
@@ -1427,6 +1442,7 @@ x=
 \end{bmatrix}
 ,
 \]</span></p>
+</div>
 <p>что отлично соотносится с результатом, полученным через SVD-разложение.</p>
 <p>Подстановка полученного частного решения в исходную систему даёт:</p>
 <p><span class="math display">\[
@@ -1502,6 +1518,7 @@ x=
 \end{bmatrix}
 \]</span></p>
 <p>С прискорбием замечаем, что наша «тестовая» матрица далека от симметричной, поэтому будем искать решение не для системы <span class="math inline">\(K \cdot x = f\)</span>, а для системы <span class="math inline">\(K^{T} \cdot K \cdot x = K^{T} \cdot f\)</span>:</p>
+<div class="scroll-formula">
 <p><span class="math display">\[
 K^{T} \cdot K=
 \begin{bmatrix}
@@ -1522,7 +1539,9 @@ K^{T} \cdot K=
 72 &amp; 99 &amp; 126
 \end{bmatrix}
 \]</span></p>
+</div>
 <p>Матрицы собственных значений и собственных векторов для <span class="math inline">\(K^{T} \cdot K\)</span> имеют вид:</p>
+<div class="scroll-formula">
 <p><span class="math display">\[
 Λ=
 \begin{bmatrix}
@@ -1537,7 +1556,9 @@ K^{T} \cdot K=
 -0,408 &amp; 0,566 &amp; 0,716
 \end{bmatrix}
 \]</span></p>
+</div>
 <p>Элемент (1,1) матрицы собственных значений – нулевой, поэтому редуцированные матрицы примут вид:</p>
+<div class="scroll-formula">
 <p><span class="math display">\[
 Λ_{red}=
 \begin{bmatrix}
@@ -1551,7 +1572,9 @@ K^{T} \cdot K=
 0,566 &amp; 0,716
 \end{bmatrix}
 \]</span></p>
+</div>
 <p>Редуцированный вектор сил примет вид:</p>
+<div class="scroll-formula">
 <p><span class="math display">\[
 f_{red} = V_{red}^{T} \cdot K^{T} \cdot f =
 \begin{bmatrix}
@@ -1573,7 +1596,9 @@ f_{red} = V_{red}^{T} \cdot K^{T} \cdot f =
 0,125 \\ 58,558
 \end{bmatrix}
 \]</span></p>
+</div>
 <p>Решаем систему <span class="math inline">\(Λ_{red} \cdot x_{red} = f_{red}\)</span>:</p>
+<div class="scroll-formula">
 <p><span class="math display">\[
 \begin{bmatrix}
 0,66 &amp; 0 \\
@@ -1585,6 +1610,7 @@ x_{red}=
 0,125 \\ 58,558
 \end{bmatrix}
 \]</span></p>
+</div>
 <p>Получим:</p>
 <p><span class="math display">\[
 x_{red}=
@@ -1593,6 +1619,7 @@ x_{red}=
 \end{bmatrix}
 \]</span></p>
 <p>Восстанавливаем полное решение как <span class="math inline">\(x = V_{red} \cdot x_{red}\)</span>:</p>
+<div class="scroll-formula">
 <p><span class="math display">\[
 x=V_{red} \cdot x_{red}=
 \begin{bmatrix}
@@ -1609,6 +1636,7 @@ x=V_{red} \cdot x_{red}=
 -0,056 \\ 0,111 \\ 0,278
 \end{bmatrix}
 \]</span></p>
+</div>
 <p>Аналогичное решение уже было получено ранее с использованием SVD-разложения.</p>
 <p>Реализуем рассмотренный подход в задаче о шарнирно опёртой балке. Нужная для этого функция будет выглядеть следующим образом:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> eigen_solve(K: np.ndarray, f: np.ndarray, tol: <span class="bu">float</span> <span class="op">=</span> <span class="fl">1e-10</span>) <span class="op">-&gt;</span> NDArray:</span>
@@ -1663,6 +1691,7 @@ K^{T}=
 3 &amp; 6 &amp; 9
 \end{bmatrix}
 \]</span></p>
+<div class="scroll-formula">
 <p><span class="math display">\[
 K^{T} \cdot K=
 \begin{bmatrix}
@@ -1683,6 +1712,7 @@ K^{T} \cdot K=
 72 &amp; 99 &amp; 126
 \end{bmatrix}
 \]</span></p>
+</div>
 <p>Добавляем <span class="math inline">\(λ \cdot I\)</span>, где <span class="math inline">\(λ\)</span> – некоторое малое значение (<span class="math inline">\(λ = 10-6\)</span>):</p>
 <p><span class="math display">\[
 I=
@@ -1692,6 +1722,7 @@ I=
 0 &amp; 0 &amp; 1
 \end{bmatrix}
 \]</span></p>
+<div class="scroll-formula">
 <p><span class="math display">\[
 K^{T} \cdot K + \lambda \cdot I =
 \begin{bmatrix}
@@ -1712,6 +1743,7 @@ K^{T} \cdot K + \lambda \cdot I =
 72 &amp; 99 &amp; 126,000001
 \end{bmatrix}
 \]</span></p>
+</div>
 <p>Отсюда, решая систему <span class="math inline">\((K^{T} \cdot K + \lambda \cdot I) \cdot x = K^{T} \cdot f\)</span>, получим:</p>
 <p><span class="math display">\[
 x=
@@ -1779,6 +1811,7 @@ K_{s}=
 \end{bmatrix}
 \]</span></p>
 <p>Тогда:</p>
+<div class="scroll-formula">
 <p><span class="math display">\[
 K + K_{s} =
 \begin{bmatrix}
@@ -1799,6 +1832,7 @@ K + K_{s} =
 5 &amp; 7 &amp; 9,000001
 \end{bmatrix}
 \]</span></p>
+</div>
 <p>Отсюда, решая систему <span class="math inline">\((K + K_{s}) \cdot x = f\)</span>, получим:</p>
 <p><span class="math display">\[
 x=
@@ -1807,6 +1841,7 @@ x=
 \end{bmatrix}
 \]</span></p>
 <p>Это частное решение можно получить из полученного ранее решения в общем виде подстановкой <span class="math inline">\(t = 0\)</span>:</p>
+<div class="scroll-formula">
 <p><span class="math display">\[
 x=
 \begin{bmatrix}
@@ -1820,6 +1855,7 @@ x=
 -0,333 \\ 0,667 \\ 0
 \end{bmatrix}
 \]</span></p>
+</div>
 <p>Проверка результата подстановкой в <span class="math inline">\(K \cdot х\)</span> даёт:</p>
 <p><span class="math display">\[
 K \cdot x =
@@ -1941,6 +1977,7 @@ x=
 \end{bmatrix}
 \]</span></p>
 <p>В результате разложения (можно опять прикинуть в маткаде) получим:</p>
+<div class="scroll-formula">
 <p><span class="math display">\[
 Q=
 \begin{bmatrix}
@@ -1955,7 +1992,9 @@ Q=
 0 &amp; 0 &amp; 0
 \end{bmatrix}
 \]</span></p>
+</div>
 <p>По числу ненулевых элементов на диагонали матрицы <span class="math inline">\(R\)</span> делаем несложный вывод о ранге матрицы, который равен двум. Вычисляем <span class="math inline">\(Q^{T} \cdot f\)</span>:</p>
+<div class="scroll-formula">
 <p><span class="math display">\[
 Q^{T} \cdot f =
 \begin{bmatrix}
@@ -1973,6 +2012,7 @@ Q^{T} \cdot f =
 \end{bmatrix}
 .
 \]</span></p>
+</div>
 <p>Так как ранг равен двум, то берём первые 2 строки и первые 2 столбца и решаем систему для усечённой части <span class="math inline">\(R_{red} \cdot x = (Q^{T} \cdot f)_{red}\)</span>:</p>
 <p><span class="math display">\[
 \begin{bmatrix}
@@ -2055,6 +2095,7 @@ x=
 \end{bmatrix}
 \]</span></p>
 <p>Переставляем строки (меняем местами 1-ю и 3-ю строки, как уже делали ранее), а столбцы оставляем как есть (то есть $P_R = I). Получим:</p>
+<div class="scroll-formula">
 <p><span class="math display">\[
 P_L =
 \begin{bmatrix}
@@ -2082,6 +2123,7 @@ P_L =
 \end{bmatrix}
 .
 \]</span></p>
+</div>
 <p>LU-разложение для матрицы даст уже знакомый результат:</p>
 <p><span class="math display">\[
 L =
