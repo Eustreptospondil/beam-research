@@ -372,6 +372,7 @@ K=\begin{bmatrix}
 </div>
 <p>где <span class="math inline">\(\Phi_z = \frac{12 \cdot E \cdot I_z}{G \cdot A \cdot k \cdot L^2}\label{eq:phi_z}\)</span>, <span class="math inline">\(\Phi_y = \frac{12 \cdot E \cdot I_y}{G \cdot A \cdot k \cdot L^2}\label{eq:phi_y}\)</span>, а <span class="math inline">\(k\)</span> - коэффициент, зависящий от формы поперечного сечения.</p>
 <p>Как несложно заметить, структура обеих матриц одинакова и, с точки зрения процедуры дальнейшего решения системы линейных алгебраических уравнений, их можно считать идентичными. Перепишем в общем виде матрицу жёсткости одного конечного элемента:</p>
+<div class="scroll-matrix">
 <p><span class="math display">\[
 \mathbf{K} =
 \begin{bmatrix}
@@ -390,6 +391,7 @@ K_{7,1} &amp; 0        &amp; 0        &amp; 0        &amp; 0        &amp; 0     
 \end{bmatrix}
 \label{eq:stiffness_matrix}
 \]</span></p>
+</div>
 <p>А теперь соберём полную матрицу жёсткости и запишем разрешающее уравнение <span class="math inline">\(K \cdot u = P\)</span> для нашей модели:</p>
 <div class="scroll-matrix">
 <p><span class="math display">\[
