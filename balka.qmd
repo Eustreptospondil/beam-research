@@ -3,6 +3,9 @@ title: "Разбор задачи о шарнирно опёртой балке 
 author: nshstsnyasha
 format: html
 editor: visual
+image: images/cover.png
+open-graph: true
+twitter-card: true
 ---
 
 ## Введение
